@@ -21,6 +21,7 @@
 //  SOFTWARE.
 
 import UIKit
+import SwiftIcons
 
 class HomeViewController: UITabBarController {
 
@@ -36,7 +37,8 @@ class HomeViewController: UITabBarController {
 
     // Setting Tab Bar Items
     override func viewWillAppear(_ animated: Bool) {
-        tabBar.items?[0].setIcon(icon: .icoMoon(.icPimanEmpty), size: nil, textColor: .lightGray)
+        guard let  icon = IcoMoonType(rawValue: "eaf3") else {return}
+        tabBar.items?[0].setIcon(icon: .icoMoon(icon), size: nil, textColor: .lightGray)
         tabBar.items?[1].setIcon(bgIcon: .fontAwesomeRegular(.circle), bgTextColor: .lightGray, topIcon: .fontAwesomeSolid(.square), topTextColor: .lightGray, bgLarge: true, size: nil)
         tabBar.items?[2].setIcon(icon: .ionicons(.iosInformation), size: nil, textColor: .lightGray)
     }
